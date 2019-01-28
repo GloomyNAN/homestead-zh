@@ -1,6 +1,6 @@
 # Readme
 
-[安装教学by:王长盛](http://docs.mojia-ohc.com:8081/#/docs/homestead)
+[安装教学by:王长胜](http://docs.mojia-ohc.com:8081/#/docs/homestead)
 
 ## 首次安装
 
