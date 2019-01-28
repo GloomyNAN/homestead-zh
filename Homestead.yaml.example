@@ -1,0 +1,51 @@
+name: your vm name
+hostname: your host name
+ip: your IP address
+memory: 1024
+cpus: 1
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys: 
+    - ~/.ssh/id_rsa
+
+folders:
+    - 
+        map: '~/WorkArea/WWW/xiaoyinka/xiaoyinka/' # 物理机地址
+        to: /WWW/xiaoyinka/xiaoyinka # 虚拟机地址
+sites:          
+        # php 版本 5.6、7.1、7.2、7.3
+        # php: "5.6" 
+        # 站点类型：apache和Nginx同时存在80端口冲突
+        # type:apache, laravel (the default), thinkphp,proxy, silverstripe, statamic, symfony2, and symfony4.
+    -   
+        map: web.xiaoyinka
+        to: /WWW/xiaoyinka/public
+databases:
+    - demo
+# blackfire:
+#     - id: foo
+#       token: bar
+#       client-id: foo
+#       client-token: bar
+   
+# # ports:
+# #     - send: 50000
+# #       to: 5000
+# #     - send: 7777
+# #       to: 777
+# #       protocol: udp
+
+networks:
+# 添加网卡配置
+#    - type: "public_network"
+#      ip: "192.168.10.80"
+#      bridge: "en0: Wi-Fi (AirPort)"
+
+# 默认端口映射
+    # momotang: 80 (guest) => 8000 (host) (adapter 1)
+    # momotang: 443 (guest) => 44300 (host) (adapter 1)
+    # momotang: 3306 (guest) => 33060 (host) (adapter 1)
+    # momotang: 5432 (guest) => 54320 (host) (adapter 1)
+    # momotang: 8025 (guest) => 8025 (host) (adapter 1)
+    # momotang: 27017 (guest) => 27017 (host) (adapter 1)
+    # momotang: 22 (guest) => 2222 (host) (adapter 1)
