@@ -41,3 +41,15 @@ function homestead() { # 函数名
     ( cd <homestead目录> && vagrant $* )
 }
 ```
+
+## 默认密码
+
+### ssh
+
+user:root<br/>
+passwd:root
+
+### mysql
+
+user:root<br/>
+passwd:root
