@@ -8,9 +8,9 @@ set @user_num = (SELECT count(*) FROM user WHERE User = 'root' AND Host = '%');
 
 CASE @user_num
 WHEN 0 THEN
-	CREATE USER test@'%' IDENTIFIED BY 'root';
+	CREATE USER root@'%' IDENTIFIED BY 'root';
 WHEN 1 THEN
-	SET PASSWORD FOR 'root'@'%' = PASSWORD('root1');
+	SET PASSWORD FOR 'root'@'%' = PASSWORD('root');
 END CASE;
 
 -- 更新权限
