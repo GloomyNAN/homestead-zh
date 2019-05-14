@@ -32,16 +32,16 @@ sudo npm config set registry https://registry.npm.taobao.org
 
 # php扩展 
 # php配置文件使用作者
-sudo apt-get install php-redis -y
+sudo apt-get install -y php-redis 
 
 ## php7.1扩展
-sudo apt-get install php7.1-mcrypt php7.1-gmp php7.1-simplexml -y
+sudo apt-get install -y php7.1-mcrypt php7.1-gmp php7.1-simplexml 
 
 ## php7.2扩展
-sudo apt-get install php7.2-gmp php7.2-mbstring php7.2-xml -y 
+sudo apt-get install -y php7.2-gmp php7.2-mbstring php7.2-xml 
 
 ## php7.3扩展
-sudo apt-get install php7.3-gmp -y
+sudo apt-get install -y php7.3-gmp 
 
 ## php重启
 sudo service php7.1-fpm restart
@@ -52,14 +52,22 @@ sudo service php7.3-fpm restart
 
 ## htop 活动监视器
 ## wkhtmltopdf H5生成pdf插件，CMS教师简历生成用
-sudo apt-get install htop wkhtmltopdf -y
+sudo apt-get install -y htop wkhtmltopdf 
 
 # mysql设置
 
 ## 修改sql_mode，兼容order、group by
 sudo echo 'sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES' >> /etc/mysql/mysql.conf.d/mysqld.cnf
 
-## 修改mysql密码
-mysql -hlocalhost -uroot -psecret mysql < /vagrant/envs/init.sql
+# mysql -hlocalhost -uroot -psecret mysql < /vagrant/envs/init.sql
 
+## 修改mysql密码
+cat > /root/.my.cnf << EOF
+[client]
+user = root
+password = root
+host = localhost
+EOF
+
+cp /root/.my.cnf /home/vagrant/.my.cnf
 sudo service mysql restart
