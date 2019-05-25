@@ -1,7 +1,5 @@
 # Readme
 
-[安装教学by:王长胜](http://docs.mojia-ohc.com:8081/#/docs/homestead)
-
 ## 首次安装
 
 1. 克隆本项目，执行`composer install`;

@@ -4,62 +4,39 @@
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 # 更换源为阿里云
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-cat > /etc/apt/sources.list <<EOF
-deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-EOF
-sudo apt-get update
-sudo apt-get upgrade -y
+my_sources=/vagrant/envs/sources.list
+defalut_sources=/etc/apt/sources.list
+if [ -f $my_sources ] && [ -f $defalut_sources ]
+then
+    diff $my_sources $defalut_sources > /dev/null
+    if [ $0 != 0 ]; 
+    then
+        sudo cp $defalut_sources $defalut_sources.bak
+        sudo cp $my_sources $defalut_sources
+        # Err:14 http://packages.blackfire.io/debian any InRelease
+        # Q:The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 696DBE66A72D76DA
+        # A:sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 696DBE66A72D76DA
+        sudo apt-get update -y
+        sudo apt-get upgrade -yhome 
+    fi
+fi
 
 # 修改composer镜像
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
-# npm还原
+# npm换源
 sudo npm config set registry https://registry.npm.taobao.org
 
-# php扩展 
-# php配置文件使用作者
-sudo apt-get install -y php-redis 
-
-## php7.1扩展
-sudo apt-get install -y php7.1-mcrypt php7.1-gmp php7.1-simplexml 
-
-## php7.2扩展
-sudo apt-get install -y php7.2-gmp php7.2-mbstring php7.2-xml 
-
-## php7.3扩展
-sudo apt-get install -y php7.3-gmp 
-
-## php重启
-sudo service php7.1-fpm restart
-sudo service php7.2-fpm restart
-sudo service php7.3-fpm restart
-
 # 软件安装
-
-## htop 活动监视器
-## wkhtmltopdf H5生成pdf插件，CMS教师简历生成用
-sudo apt-get install -y htop wkhtmltopdf 
+sudo apt-get -y \
+    -o Dpkg::Options::="--force-confdef" \
+    -o Dpkg::Options::="--force-confold" \
+    install htop wkhtmltopdf \
+    php-redis php-mongodb\
+    php7.1-mcrypt php7.1-gmp php7.1-simplexml \
+    php7.2-gmp php7.2-mbstring php7.2-xml php7.3-gmp 
 
 # mysql设置
-
-## 修改sql_mode，兼容order、group by
-sudo echo 'sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES' >> /etc/mysql/mysql.conf.d/mysqld.cnf
-
-# mysql -hlocalhost -uroot -psecret mysql < /vagrant/envs/init.sql
 
 ## 修改mysql密码
 cat > /root/.my.cnf << EOF
@@ -67,7 +44,8 @@ cat > /root/.my.cnf << EOF
 user = root
 password = root
 host = localhost
+
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 EOF
 
 cp /root/.my.cnf /home/vagrant/.my.cnf
-sudo service mysql restart

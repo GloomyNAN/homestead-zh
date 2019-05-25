@@ -27,10 +27,11 @@ databases:
 #       token: bar
 #       client-id: foo
 #       client-token: bar
-   
-# # ports:
-# #     - send: 50000
-# #       to: 5000
+
+ports:
+    - send: 63790
+      to: 6379
+      protocol: tcp
 # #     - send: 7777
 # #       to: 777
 # #       protocol: udp
