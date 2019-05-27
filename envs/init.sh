@@ -39,13 +39,14 @@ sudo apt-get -y \
 # mysql设置
 
 ## 修改mysql密码
-cat > /root/.my.cnf << EOF
+### mysql --print-defaults
+sudo cat > /root/.my.cnf << EOF
 [client]
 user = root
 password = root
 host = localhost
-
-sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 EOF
 
-cp /root/.my.cnf /home/vagrant/.my.cnf
+sudo cp /root/.my.cnf /home/vagrant/.my.cnf
+sudo cp /vagrant/envs/myopt.cnf /etc/mysql/mysql.conf.d/myopt.cnf
+sudo service mysql restart

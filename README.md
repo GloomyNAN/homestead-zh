@@ -42,11 +42,6 @@ function homestead() { # 函数名
 
 ## 默认密码
 
-### ssh
-
-user:root<br/>
-passwd:root
-
 ### mysql
 
 user:root<br/>
