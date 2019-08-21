@@ -17,7 +17,7 @@ then
         # Q:The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 696DBE66A72D76DA
         # A:sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 696DBE66A72D76DA
         sudo apt-get update -y
-        sudo apt-get upgrade -yhome 
+        sudo apt-get upgrade -y
     fi
 fi
 
