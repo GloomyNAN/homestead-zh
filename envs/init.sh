@@ -22,7 +22,7 @@ then
 fi
 
 # 修改composer镜像
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 
 # npm换源
 sudo npm config set registry https://registry.npm.taobao.org

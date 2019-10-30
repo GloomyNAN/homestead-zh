@@ -1,6 +1,7 @@
+---
 name: your vm name
 hostname: your host name
-ip: your IP address
+ip: "your IP address"
 memory: 1024
 cpus: 1
 provider: virtualbox
@@ -10,8 +11,13 @@ keys:
 
 folders:
     - 
+<<<<<<< 434aafe539b5f15ea2c7d75fbee524d70d1f6dd8
         map: '~/WorkArea/WWW/xiaoyinka/xiaoyinka/' # 物理机地址
         to: /WWW/xiaoyinka/ 					   # 虚拟机地址
+=======
+        map: '~/WWW/xiaoyinka/' # 物理机地址
+        to: /WWW/xiaoyinka # 虚拟机地址
+>>>>>>> 更换composer源
 sites:          
         # php 版本 5.6、7.1、7.2、7.3
         # php: "5.6" 
@@ -24,12 +30,14 @@ sites:
         php: "7.1"
 databases:
     - demo
+
 # blackfire:
 #     - id: foo
 #       token: bar
 #       client-id: foo
 #       client-token: bar
 
+<<<<<<< 434aafe539b5f15ea2c7d75fbee524d70d1f6dd8
 #ports:
 #    - send: 63790
 #      to: 6379
@@ -37,18 +45,32 @@ databases:
 # #     - send: 7777
 # #       to: 777
 # #       protocol: udp
+=======
+# features:
+#     - mariadb: false
+#     - ohmyzsh: false
+#     - webdriver: false
 
-networks:
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
+>>>>>>> 更换composer源
+
+# networks:
 # 添加网卡配置
 #    - type: "public_network"
-#      ip: "192.168.10.80"
+#      ip: "192.168.XX.XX"
 #      bridge: "en0: Wi-Fi (AirPort)"
 
+
 # 默认端口映射
-    # momotang: 80 (guest) => 8000 (host) (adapter 1)
-    # momotang: 443 (guest) => 44300 (host) (adapter 1)
-    # momotang: 3306 (guest) => 33060 (host) (adapter 1)
-    # momotang: 5432 (guest) => 54320 (host) (adapter 1)
-    # momotang: 8025 (guest) => 8025 (host) (adapter 1)
-    # momotang: 27017 (guest) => 27017 (host) (adapter 1)
-    # momotang: 22 (guest) => 2222 (host) (adapter 1)
+# momotang: 80 (guest) => 8000 (host) (adapter 1)
+# momotang: 443 (guest) => 44300 (host) (adapter 1)
+# momotang: 3306 (guest) => 33060 (host) (adapter 1)
+# momotang: 5432 (guest) => 54320 (host) (adapter 1)
+# momotang: 8025 (guest) => 8025 (host) (adapter 1)
+# momotang: 27017 (guest) => 27017 (host) (adapter 1)
+# momotang: 22 (guest) => 2222 (host) (adapter 1)
