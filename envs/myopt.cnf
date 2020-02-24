@@ -1,2 +1,3 @@
 [mysqld]
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+group_concat_max_len = 10240
