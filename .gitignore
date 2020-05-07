@@ -32,7 +32,6 @@ yarn-error.log
 
 # composer
 /vendor
-/composer.lock
 /composer.phar
 /composer.bat
 
