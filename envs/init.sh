@@ -31,8 +31,7 @@ sudo npm config set registry https://registry.npm.taobao.org
 sudo apt-get -y \
     -o Dpkg::Options::="--force-confdef" \
     -o Dpkg::Options::="--force-confold" \
-    install htop wkhtmltopdf \
-    php-redis php-mongodb\
+    install htop php-redis php-mongodb\
     php7.1-mcrypt php7.1-gmp php7.1-simplexml \
     php7.2-gmp php7.2-mbstring php7.2-xml php7.3-gmp 
 
