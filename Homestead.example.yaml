@@ -4,6 +4,8 @@ hostname: your host name
 ip: "your IP address"
 memory: 1024
 cpus: 1
+# mongodb: true
+# elasticsearch: 6
 provider: virtualbox
 authorize: ~/.ssh/id_rsa.pub
 keys: 
@@ -11,8 +13,8 @@ keys:
 
 folders:
     - 
-        map: '~/WWW/xiaoyinka/' # 物理机地址
-        to: /WWW/xiaoyinka # 虚拟机地址
+        map: '~/WWW/' # 物理机地址
+        to: /WWW/ # 虚拟机地址
 sites:          
         # php 版本 5.6、7.1、7.2、7.3
         # php: "5.6" 
@@ -32,10 +34,16 @@ databases:
 #       client-id: foo
 #       client-token: bar
 
-# features:
-#     - mariadb: false
-#     - ohmyzsh: false
-#     - webdriver: false
+#features:
+#    - mariadb: false
+#    - ohmyzsh: false
+#    - webdriver: false
+
+#services:
+#    - enabled:
+#        - "postgresql@12-main"
+#    - disabled:
+#        - "postgresql@11-main"
 
 # ports:
 #     - send: 50000
@@ -50,12 +58,11 @@ databases:
 #      ip: "192.168.XX.XX"
 #      bridge: "en0: Wi-Fi (AirPort)"
 
-
 # 默认端口映射
-# momotang: 80 (guest) => 8000 (host) (adapter 1)
-# momotang: 443 (guest) => 44300 (host) (adapter 1)
-# momotang: 3306 (guest) => 33060 (host) (adapter 1)
-# momotang: 5432 (guest) => 54320 (host) (adapter 1)
-# momotang: 8025 (guest) => 8025 (host) (adapter 1)
-# momotang: 27017 (guest) => 27017 (host) (adapter 1)
-# momotang: 22 (guest) => 2222 (host) (adapter 1)
+# 80 (guest) => 8000 (host) (adapter 1)
+# 443 (guest) => 44300 (host) (adapter 1)
+# 3306 (guest) => 33060 (host) (adapter 1)
+# 5432 (guest) => 54320 (host) (adapter 1)
+# 8025 (guest) => 8025 (host) (adapter 1)
+# 27017 (guest) => 27017 (host) (adapter 1)
+# 22 (guest) => 2222 (host) (adapter 1)

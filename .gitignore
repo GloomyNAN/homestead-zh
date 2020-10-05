@@ -25,11 +25,6 @@ Thumbs.db
 # vscode
 /.vscode
 
-# node.js
-node_modules/
-npm-debug.log
-yarn-error.log
-
 # composer
 /vendor
 /composer.phar
@@ -39,6 +34,7 @@ yarn-error.log
 Homestead.json
 Homestead.yaml
 /.vagrant
+/envs/init.sh
 
 # custom
 /etc

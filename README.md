@@ -1,15 +1,31 @@
 # Readme
 
-## 首次安装
+本项目是基于[Homestead](https://laravel.com/docs/8.x/homestead)进行国内定制,支持apache, apigility, expressive, laravel (the default), proxy, silverstripe, statamic, symfony2, symfony4, zf, thiknphp.
 
-1. 克隆本项目，执行`composer install`;
-2. 请将`Homestead.yaml.example`复制改名为`Homestead.yaml`并配置；
-3. `vagrant up`;
+## Requirement
+
+- laravel/homestead (virtualbox, 10.1.0)
+- Vagrant 2.2.10
+- virtualbox 6.1.12
+- composer
+
+**mac用户可使用homebrew安装vagrant和virtualbox**
+
+1. `brew cask install vagrant`
+2. `brew install virtualbox`
+
+## Setp
+
+1. `git clone git@github.com:GloomyNAN/homestead-zh.git`
+2. `cd homestead-zh & composer install`;
+3. `cp Homestead.yaml.example Homestead.yaml`并配置；
+4. `cp envs/init.sh.example envs/init.sh`
+5. `vagrant up`;
    
 ## 目录结构
 
 ```
-├── Homestead.example.yaml          配置文件例子
+├── Homestead.example.yaml          配置文件模板
 ├── Homestead.yaml                  实际配置文件
 ├── README.md                       说明文档
 ├── Vagrantfile                     vagrant配置文件
