@@ -35,6 +35,3 @@ Homestead.json
 Homestead.yaml
 /.vagrant
 /envs/init.sh
-
-# custom
-/etc
